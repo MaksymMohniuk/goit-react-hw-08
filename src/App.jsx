@@ -1,4 +1,3 @@
-import "./App.module.css";
 import { Suspense, lazy } from "react";
 import Loader from "./components/Loader/Loader.jsx";
 import { Route, Routes } from "react-router-dom";
