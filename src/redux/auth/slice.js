@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { apiLogin, apiRefreshUser, apiRegister } from "./operations";
+import { apiLogin, apiLogout, apiRefreshUser, apiRegister } from "./operations";
 
 const INITIAL_STATE = {
   user: {
@@ -29,6 +29,9 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
+      })
+      .addCase(apiLogout.fulfilled, () => {
+        return INITIAL_STATE;
       })
       .addCase(apiRefreshUser.pending, (state) => {
         state.isRefreshing = true;
