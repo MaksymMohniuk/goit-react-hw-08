@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout.jsx";
 import { useDispatch } from "react-redux";
 import { apiRefreshUser } from "./redux/auth/operations.js";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
 
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
@@ -24,9 +26,30 @@ function App() {
           <Suspense fallback={<Loader />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/contacts" element={<ContactsPage />} />
+              <Route
+                path="/register"
+                element={
+                  <RestrictedRoute>
+                    <RegisterPage />
+                  </RestrictedRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <RestrictedRoute>
+                    <LoginPage />
+                  </RestrictedRoute>
+                }
+              />
+              <Route
+                path="/contacts"
+                element={
+                  <PrivateRoute>
+                    <ContactsPage />
+                  </PrivateRoute>
+                }
+              />
             </Routes>
           </Suspense>
         </Layout>
