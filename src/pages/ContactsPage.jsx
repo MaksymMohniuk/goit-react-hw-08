@@ -9,7 +9,7 @@ import { apiGetContacts } from "../redux/contacts/operations";
 import ContactForm from "../components/ContactForm/ContactForm";
 import SearchBox from "../components/SearchBox/SearchBox";
 import Loader from "../components/Loader/Loader";
-import { ErrorMessage } from "../components/ErrrorMessage/ErrorMessage";
+import ErrorMessage from "../components/ErrrorMessage/ErrorMessage";
 import ContactList from "../components/ContactList/ContactList";
 
 const ContactsPage = () => {
