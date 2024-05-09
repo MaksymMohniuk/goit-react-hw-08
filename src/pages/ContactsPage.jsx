@@ -12,6 +12,8 @@ import Loader from "../components/Loader/Loader";
 import ErrorMessage from "../components/ErrrorMessage/ErrorMessage";
 import ContactList from "../components/ContactList/ContactList";
 
+import styles from "./ContactsPage.module.css";
+
 const ContactsPage = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectPhonebookContacts);
@@ -23,12 +25,19 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <ContactForm />
-      <SearchBox />
-      {isLoading && <Loader />}
-      {isError && <ErrorMessage />}
-      {contacts !== null && <ContactList />}
+    <div className={styles.container}>
+      <div className={styles.section}>
+        <h1 className={styles.title}>Contacts</h1>
+        <ContactForm />
+      </div>
+      <div className={styles.section}>
+        <SearchBox />
+      </div>
+      <div className={styles.section}>
+        {isLoading && <Loader />}
+        {isError && <ErrorMessage />}
+        {contacts !== null && <ContactList />}
+      </div>
     </div>
   );
 };

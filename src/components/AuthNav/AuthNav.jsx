@@ -1,20 +1,28 @@
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-import css from "../../App.module.css";
+import styles from "./AuthNav.module.css";
 
 const getNavLinkClassName = ({ isActive }) =>
-  clsx(css.navLink, {
-    [css.active]: isActive,
+  clsx(styles.navLink, {
+    [styles.active]: isActive,
   });
 
 const AuthNav = () => {
   return (
     <div>
-      <nav className={css.nav}>
-        <NavLink className={getNavLinkClassName} to="/register">
+      <nav className={styles.nav}>
+        <NavLink
+          className={getNavLinkClassName}
+          activeClassName={styles.active}
+          to="/register"
+        >
           Register
         </NavLink>
-        <NavLink className={getNavLinkClassName} to="/login">
+        <NavLink
+          className={getNavLinkClassName}
+          activeClassName={styles.active}
+          to="/login"
+        >
           Login
         </NavLink>
       </nav>
