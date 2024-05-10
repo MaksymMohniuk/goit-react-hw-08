@@ -53,7 +53,8 @@ const contactsSlice = createSlice({
         isAnyOf(
           apiGetContacts.rejected,
           apiAddContact.rejected,
-          apiDeleteContact.rejected
+          apiDeleteContact.rejected,
+          apiLogout.rejected
         ),
         (state) => {
           state.loading = false;

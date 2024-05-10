@@ -33,6 +33,10 @@ const authSlice = createSlice({
       .addCase(apiLogout.fulfilled, () => {
         return INITIAL_STATE;
       })
+      .addCase(apiLogout.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(apiRefreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
