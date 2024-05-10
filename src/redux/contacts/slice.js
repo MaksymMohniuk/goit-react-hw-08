@@ -42,11 +42,12 @@ const contactsSlice = createSlice({
         isAnyOf(
           apiGetContacts.pending,
           apiAddContact.pending,
-          apiDeleteContact.pending
+          apiDeleteContact.pending,
+          apiLogout.pending
         ),
         (state) => {
           state.loading = true;
-          state.error = false;
+          state.error = null;
         }
       )
       .addMatcher(
@@ -56,9 +57,9 @@ const contactsSlice = createSlice({
           apiDeleteContact.rejected,
           apiLogout.rejected
         ),
-        (state) => {
+        (state, action) => {
           state.loading = false;
-          state.error = true;
+          state.error = action.payload;
         }
       );
   },

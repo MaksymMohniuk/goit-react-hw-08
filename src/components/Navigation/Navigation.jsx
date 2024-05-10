@@ -16,20 +16,11 @@ const Navigation = () => {
   return (
     <div>
       <nav className={styles.nav}>
-        <NavLink
-          className={getNavLinkClassName}
-          activeClassName={styles.active}
-          exact
-          to="/"
-        >
+        <NavLink className={getNavLinkClassName} to="/">
           Home
         </NavLink>
         {isSignedIn && (
-          <NavLink
-            className={getNavLinkClassName}
-            activeClassName={styles.active}
-            to="/contacts"
-          >
+          <NavLink className={getNavLinkClassName} to="/contacts">
             Contacts
           </NavLink>
         )}

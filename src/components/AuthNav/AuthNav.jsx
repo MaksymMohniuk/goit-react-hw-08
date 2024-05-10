@@ -11,18 +11,10 @@ const AuthNav = () => {
   return (
     <div>
       <nav className={styles.nav}>
-        <NavLink
-          className={getNavLinkClassName}
-          activeClassName={styles.active}
-          to="/register"
-        >
+        <NavLink className={getNavLinkClassName} to="/register">
           Register
         </NavLink>
-        <NavLink
-          className={getNavLinkClassName}
-          activeClassName={styles.active}
-          to="/login"
-        >
+        <NavLink className={getNavLinkClassName} to="/login">
           Login
         </NavLink>
       </nav>
